@@ -6,9 +6,9 @@ import Search from './Search';
 import Card from './Card';
 
 
-class App extends React.Component {
-    constructor(PropTypes) {
-        super(PropTypes)
+const App = () => {
+    constructor() {
+        super()
         this.state = {
             robots: robots,
             searchfield: ''
