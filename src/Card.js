@@ -9,7 +9,7 @@ import './Card.css';
 const Card = (PropTypes) => {
     return (
         <div className=''>
-            <img alt='robots' src={'https://robohash.org/${i.id}200x200'} />
+            <img alt='robots' src={`https://robohash.org/${PropTypes.id}200x200`} />
             <div>
                 <h2>{PropTypes.name}</h2>
                 <p>{PropTypes.email}</p>

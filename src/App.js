@@ -1,34 +1,35 @@
 import React, { Component } from 'react';
 import CardList from './CardList';
 import { robots } from './robots';
-import PropTypes from 'prop-types';
 import Search from './Search';
-import Card from './Card';
 
-
-const App = () => {
+class App extends Component {
     constructor() {
         super()
         this.state = {
             robots: robots,
             searchfield: ''
-
         }
     }
     onsearchchange = (event) => {
+        console.log("function call");
         this.setState({ searchfield: event.target.value })
     }
+
     render() {
         const filteredrobots = this.state.robots.filter(robot => {
-            return robots.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
-        })
+            return robot.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
+        });
+        console.log(filteredrobots);
+        
         return (
             <div className='tc' >
                 <h1>Robo friends</h1>
                 <Search searchchange={this.onsearchchange} />
-                <CardList robots={this.state.robots} />
+                <CardList robots={filteredrobots} />
             </div>
         );
     }
 }
+
 export default App;
